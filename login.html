@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winda's</title>
+    <link rel="stylesheet" href="style_login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="imagens/logo_azul_windas_sem_fundo.webp" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <div id="header">
+            <img id="logo" src="imagens/Logo Container.png">
+
+        </div>
+
+
+        <div id="login">
+            <h1>Entrar na Winda's</h1> <br>
+            <label class="label-input">
+                <img id="icone-modify" src="imagens/iconamoon_email-thin.png" alt="">
+                <input placeholder="Email" id="input_email"> <br><br>
+            </label>
+            <label class="label-input">
+                <img id="icone-modify" src="imagens/Vector.png" alt="">
+                <input placeholder="Senha" id="input_senha" type="password"> <br> <br>
+            </label>
+            <button id="esqueceuSenha" onclick="EsqueceuSenha()">Esqueceu sua senha?</button> <br>
+
+            <button id="login-button" onclick="Login()">Login</button><br>
+            <div id="div_login"></div>
+            <h5 id="cadastrar">Novo na Winda's? </h5><button id="cadastro-button"
+                onclick="cadastro()">Cadastrar</button>
+        </div>
+        <div id="imagem_cama"> <img src="imagens/Frame 50.png"></div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function Login() {
+
+        const email = input_email.value;
+        const senha = input_senha.value;
+        const emailValido = email.endsWith('@gmail.com') || email.endsWith('@outlook.com');
+        let regexMaiuscula = /[A-Z]/;
+        let regexMinuscula = /[a-z]/;
+        let regexNumero = /[0-9]/;
+        let senhaValida = false;
+
+        if (regexMaiuscula.test(senha) && regexMinuscula.test(senha) && regexNumero.test(senha) && 
+            (senha.indexOf('@') >= 0 ||
+            senha.indexOf('#') >= 0 || senha.indexOf('$') >= 0 ||
+            senha.indexOf('%') >= 0 || senha.indexOf('&') >= 0 ||
+            senha.indexOf('*') >= 0 || senha.indexOf('!') >= 0 ||
+            senha.indexOf('?') >= 0 || senha.indexOf('-') >= 0 || senha.indexOf('()') >= 0 || senha.indexOf('/') >= 0)) {
+            senhaValida = true;
+        } 
+
+
+
+        if (emailValido && senhaValida && senha.length >= 8) {
+
+            div_login.innerHTML = 'Bem vindo!'
+
+        } else {
+            alert("Não foi possível encontrar sua Conta da Winda's") 
+
+        }
+
+    }
+</script>
