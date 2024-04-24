@@ -6,6 +6,7 @@ function cadastro() {
     const senha = document.getElementById('cadastro_input_senha').value;
     const confirmSenha = document.getElementById('confirmacaoSenha').value;
 
+
     // criando váriaveis de verificação com REGEX
     let regexMaiuscula = /[A-Z]/;
     let regexMinuscula = /[a-z]/;
@@ -48,6 +49,7 @@ function cadastro() {
             document.getElementById('nomeErro').innerHTML = '';
 
         }
+
     /* ------------------ VERIFICAÇÃO DE SENHA ----------------------- */
 
     // testando se os valores da variavel 'senha' contém os valores aceitos pelos REGEX
@@ -58,6 +60,7 @@ function cadastro() {
     } 
 
     // verificando se existem números na senha
+
     for (let contador = 0; contador <= 9; contador ++) {
 
         if (senha.indexOf(`${contador}`) > -1) {
@@ -76,6 +79,7 @@ function cadastro() {
     }
     
     // verificando o tamanho da senha
+
     if (senha.length < 6) {
         
         document.getElementById('cadastroSenhaErro').innerHTML = mensagemSenhaCurta;
@@ -86,7 +90,9 @@ function cadastro() {
 
     }
 
+
     // verificando se a senha passa em todos os testes
+
     if (!senhaValida && senha.length >= 6) {
 
         document.getElementById('cadastroSenhaErro').innerHTML = mensagemSenhaInvalida;
@@ -96,7 +102,6 @@ function cadastro() {
         document.getElementById('cadastroSenhaErro').innerHTML = '';
 
     }
-
 
     /* ------------------ VERIFICAÇÃO DECONFIRMAÇÃO DE SENHA ----------------------- */
 
@@ -129,6 +134,7 @@ function cadastro() {
 
     }
 
+
     /* ------------------------------ VERIFICANDO SE TODOS OS CAMPOS ESTÃO CORRETOS ----------------------------- */
 
     if (nomeValido && emailValido && senhaValida && confirmSenhaValida) {
@@ -143,6 +149,7 @@ function cadastro() {
 
 }
 
+
 /* ------------------ CONFIGURANDO ANIMAÇÕES DA PÁGINA ----------------- */
 function habilitarCadastro() {
 
@@ -151,6 +158,7 @@ function habilitarCadastro() {
     document.getElementById('imagem_cama').style.animationDuration = '2s';
     document.getElementById('imagem_cama').style.left = '-.375rem';
     
+
     // fazendo os campos do login desaparecerem 
     document.getElementById('container_login').style.animation = "fadeOut";
     document.getElementById('container_login').style.animationDuration = '1s';
@@ -171,11 +179,13 @@ function habilitarLogin() {
     document.getElementById('imagem_cama').style.animationDuration = '2s';
     document.getElementById('imagem_cama').style.left = '50%';
     
+
     // fazendo os campos do login aparecerem
     document.getElementById('container_login').style.animation = "fadeIn";
     document.getElementById('container_login').style.animationDuration = '1s';
     setTimeout(() => document.getElementById('container_login').style.display = 'flex',800);
     
+
     // fazendo os campos do cadastro desaparecerrem
     setTimeout(() => document.getElementById('container_cadastro').style.display = 'none',800);
     document.getElementById('container_cadastro').style.animation = "fadeOut";
